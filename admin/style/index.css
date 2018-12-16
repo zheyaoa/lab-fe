@@ -1,0 +1,56 @@
+body,html {
+	height: 100%;
+}
+.nav>li{
+	float: none;
+}
+.container-fluid{
+	padding: 0;
+	height: 100%;
+	display: flex;
+}
+
+/* left navigation */
+.left-nav {
+	background: #00263E;
+	width: 220px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.title {
+	font-size: 30px;
+	height: 100px;
+	line-height: 100px;
+	color: white;
+	text-align: center;
+}
+#navList a{
+	text-align: center;
+	font-size: 18px;
+	flex: 1;
+}
+
+
+
+
+/*主体部分*/
+
+.right-page {
+	flex: 1;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.header{
+	height: 80px;
+}
+
+
+/*iframe*/
+
+.content {
+	width: 100%;
+	flex: 1;
+}
