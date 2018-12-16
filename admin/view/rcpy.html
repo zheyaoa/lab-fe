@@ -21,7 +21,7 @@
             margin-top: 15px;
         }
         .w-e-text-container{
-            height: 600px !important;
+            height: 450px !important;
         }
     </style>
 </head>
@@ -29,9 +29,14 @@
     <div class="container">
         <span>主题:</span>
         <select class="form-control"　id='theme'>
-            <option>工作室简介</option>
-            <option>工作条例</option>
+            <option>博士后</option>
+            <option>博士研究生</option>
+            <option>硕士研究生</option>
         </select>
+        <span>标题</span>
+        <input type="text" class="form-control">
+        <span>发布人</span>
+        <input type="text" class="form-control">
         <span>正文:</span>
         <div id="editor">
             
@@ -40,24 +45,6 @@
     </div>
     <script>
         var editor = new wangEditor('#editor')
-        editor.customConfig.menus = [
-            'head',  // 标题
-            'bold',  // 粗体
-            'fontSize',  // 字号
-            'fontName',  // 字体
-            'italic',  // 斜体
-            'underline',  // 下划线
-            'strikeThrough',  // 删除线
-            'foreColor',  // 文字颜色
-            'backColor',  // 背景颜色
-            'link',  // 插入链接
-            'list',  // 列表
-            'justify',  // 对齐方式
-            'quote',  // 引用
-            'table',  // 表格
-            'undo',  // 撤销
-            'redo'  // 重复
-        ]
         editor.create()
         document.querySelector("#submit").onclick = function(){
             console.log(editor.txt.html())

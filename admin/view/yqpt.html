@@ -8,88 +8,30 @@
     <link href="../style/bootstrap.min.css" rel="stylesheet">
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/wangEditor.min.js"></script>
     <style>
-        span{
-            display: block;
-            font-size: 18px;
-            margin-top: 10px;
-            line-height: 1.4em;
-        }
-        .w-e-text-container{
-            height: 400px !important;
-        }
-        #submit{
-            margin-top: 15px;
+        .footer{
+            position: fixed;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <span>仪器名称:</span>
-        <input type="text" class="form-control" id="instrumentName">
-        <span>仪器管理员名称:</span>
-        <input type="text" class="form-control" id="administorName">
-        <span>联系方式:</span>
-        <input type="text" class="form-control" id="telephone">
-        <span>图片上传</span>
-        <input type="file" class="form-control" id="image">
-        <span>仪器介绍:</span>
-        <div id="editor">  </div>
-        <button id="submit" type="submit" class="btn btn-default">提交</button>
+        <h1 class="header">仪器平台</h1>
+        <div class="content">
+
+        </div>
+        <div class="footer">
+            <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="1">1</a></li>
+                <li><a href="2">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
     </div>
-    <script>
-
-        //判断文件类型是否合适且大小是否合适
-        function judgeFile(file){
-            let reg = /^image/;
-            return reg.test(file.type)
-        }
-        //回调函数
-        function callback(fn,image){
-            fn(image)
-        }
-        function uploadFormdata(image){
-            let data = {
-                instrumentName:getValue('instrumentName'),
-                administorName:getValue('administorName'),
-                telephone:getValue('telephone'),
-                image:image,
-                txt:editor.txt.html
-            }
-            data =  JSON.stringify(data);
-        }
-        function testFormData(){
-            
-        }
-        function getValue(id){
-            return document.getElementById(id).value;
-        }
-        var editor = new wangEditor('#editor')
-        editor.create()
-        //每次上传文件去判断图片类型
-        document.querySelector('#image').addEventListener('change',function(e){
-            let file = e.target.files[0];
-            if(!judgeFile(file)){
-                return;
-            }
-
-
-        })
-        
-        document.querySelector("#submit").onclick = function(){
-            var file = document.querySelector('#image').files[0];
-            //如果文件类型为图片
-            if(judgeFile(file)){
-                //读取input中的file文件
-                let reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = function(e){
-                    let image = e.target.result;
-                    callback(uploadFormdata,image)
-                }
-            }
-        }
-    </script>
 </body>
 </html>
