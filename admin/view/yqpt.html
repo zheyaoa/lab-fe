@@ -6,12 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="../style/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../style/common.css">
     <script src="../js/jquery.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/util.js"></script>
     <style>
         .footer{
+            width: 100%;
             position: fixed;
-            bottom: 0;
+            bottom: 40px;
         }
     </style>
 </head>
@@ -22,16 +25,16 @@
 
         </div>
         <div class="footer">
-            <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li><a href="1">1</a></li>
-                <li><a href="2">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul>
+            <div id="pagination">
+            </div>
         </div>
     </div>
+    <script>
+        var pagination = new Pagination('#pagination',[1,2,3],function(list){
+            console.log(list)
+        });
+        pagination.setPageSize(1)
+        pagination.create()
+    </script>
 </body>
 </html>
