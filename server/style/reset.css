@@ -1,0 +1,8 @@
+/*初始化浏览器样式*/
+html,body{
+    margin: 0;
+    min-height: 100%;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.428rem;
+}
