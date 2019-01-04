@@ -11,38 +11,39 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/util.js"></script>
     <style>
-
-        .box{
-            margin-bottom: 20px;
-            width: 25%;
+        td,th{
             text-align: center;
+            width: 25%;
         }
-        .instrument{
-            width: 220px;
-            font-size: 20px;
-            margin: 5px auto;
+        td{
+            vertical-align: middle !important;
         }
-        .box img{
-            width: 220px;
-            height: 165px;
+        .btnGroup>button{
+            margin: 0 20px;
         }
-        .btnGroup{
-            width: 220px;
-            display: flex;
-            justify-content: space-between; 
-            margin: 0 auto;
-            margin-top: 5px;
+        .title :hover{
+            color: red;
         }
-
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="page-header">
-            仪器平台
-            <button type="button" class="btn btn-primary" id="add">添加仪器</button>
+            工作条例
+            <button type="button" class="btn btn-primary" id="add">添加文章</button>
         </h1>
-        <div id="list">
+        <div class="content">
+            <table class="table  table-hover">
+                <thead>
+                    <tr>
+                        <th>文章主题</th>
+                        <th>发布人</th>
+                        <th>发布时间</th>
+                        <th>相关操作</th>
+                    </tr>
+                </thead>
+                <tbody id="list"></tbody>
+            </table>
         </div>
         <div class="footer">
             <div id="pagination">
@@ -50,12 +51,18 @@
         </div>
     </div>
     <script>
-
+        function getUrl(api){
+            var baseUrl = 'http://111.231.218.156:8080/Lab';
+            return baseUrl + api;
+        }
         $.ajax({
             type:'POST',
-            url:getUrl('/api/Instrument/getAllInstrument'),
+            url:getUrl('/api/Work/getAllWorks'),
             contentType: "application/json", //必须有  
-            dataType: "json", //表示返回值类型，不必须  
+            dataType: "json", //表示返回值类型，不必须 
+            beforeSend: function(xhr) {
+                    xhr.setRequestHeader("authorization",window.localStorage.getItem('token'));
+            },
             success:function(res){
                 var list = res.data;
                 var pagination = new Pagination('#pagination',list,function(list){
@@ -68,51 +75,42 @@
                 pagination.create()
             }
         })
-
         function createTemplate(item){
-            let html = `<div class="box">
-                <div class="instrument">${item.name}</div>
-                <img src="${item.img}">
-                <div class="btnGroup" data-id="${item.id}">
-                    <button type="button" class="btn btn-default editor" >编辑</button>
-                    <button type="button" class="btn btn-danger delete" >删除</button>
-                </div>
-            </div>
+            var html = `
+                <tr>
+                    <td class="title">${item.title}</td>
+                    <td>${item.publisher}</td>
+                    <td>${item.time}</td>
+                    <td class="btnGroup" data-id="${item.id}">
+                        <button type="button" class="btn btn-default editor" >编辑</button>
+                        <button type="button" class="btn btn-danger delete" >删除</button>
+                    </td>
+                </tr>
             `
             return html;
         }
-
-        document.querySelector('#list').addEventListener('click',function(e){
+        document.querySelector('.content').addEventListener('click',function(e){
             var target = e.target;
             if(target.classList.contains('editor')){
                 handleEditor(e)
             }else if(target.classList.contains("delete")){
                 handleDelete(e)
             }
-        })
+        })   
         document.querySelector('#add').onclick = function(){
-            location.href = 'xgyqpt.html'
-        }
-
-        function getUrl(api){
-            var baseUrl = 'http://111.231.218.156:8080/Lab';
-            return baseUrl + api;
-        }
-
+            location.href = 'xggztl.html'
+        } 
         function handleEditor(e){
-            var dom = e.target.parentNode;
-            var id = dom.getAttribute("data-id");
-            location.href = 'xgyqpt.html?id='+id;
+            var id = e.target.parentNode.getAttribute('data-id');
+            var url = 'xggztl.html?id='+id;
+            location.href = url
         }
-
         function handleDelete(e){
-            var dom = e.target.parentNode;
-            var id = dom.getAttribute("data-id");
-            var url = getUrl('/api/Instrument/deleteInstrument');
+            var id = e.target.parentNode.getAttribute('data-id');
             var data = JSON.stringify({id});
             $.ajax({
                 type:'POST',
-                url:url,
+                url:getUrl('/api/Work/deleteWork'),
                 beforeSend: function(xhr) {
                     xhr.setRequestHeader("authorization",window.localStorage.getItem("token"));
                 },
@@ -125,7 +123,6 @@
                 }
             })
         }
-
     </script>
 </body>
 </html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="../style/bootstrap.min.css" rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/wangEditor.min.js"></script>
+    <script src="../js/util.js"></script>
+    <style>
+        span{
+            display: block;
+            font-size: 18px;
+            margin-top: 10px;
+            line-height: 1.4em;
+        }
+
+        #submit{
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span>分类:</span>
+        <select class="form-control"　id='theme'>
+            <option>科技动态</option>
+        </select>
+        <span>文章标题:</span>
+        <input type="text" class="form-control" id="title">
+        <span>发布人</span>
+        <input type="text" class="form-control" id="publisher">
+        <span>正文:</span>
+        <div id="editor"></div>
+        <button id="submit" type="submit" class="btn btn-default">提交</button>
+    </div>
+    <script>
+        var editor = new wangEditor('#editor');
+        function getUrl(api){
+            var baseUrl = 'http://111.231.218.156:8080/Lab';
+            return baseUrl + api;
+        }
+        editor.create()
+        var url;
+        var id = location.href.split('=')[1];
+        if(id){
+            //获取文章id的信息
+            $.get(getUrl('/api/Dynamic/getDynamic'),{id:id},function(res){
+                document.querySelector('#title').value = res.data.title,
+                document.querySelector('#publisher').value = res.data.publisher,
+                editor.txt.html(res.data.content),
+                url = getUrl('/api/Dynamic/updateDynamic');
+            })
+        }else{
+            url = getUrl('/api/Dynamic/addDynamic');
+        } 
+        document.querySelector("#submit").onclick = function(){
+            var data = {
+                id:id,
+                title:document.querySelector('#title').value,
+                publisher:document.querySelector('#publisher').value,
+                content:editor.txt.html()
+            }
+            data = JSON.stringify(data);
+            $.ajax({
+                type:'POST',
+                url:url,
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader("authorization",window.localStorage.getItem('token'));
+                },
+                data:data,
+                contentType: "application/json", //必须有  
+                dataType: "json", //表示返回值类型，不必须  
+                success:function(res){
+                    alert("提交成功");
+                    location.href = './kjdt.html';
+                }
+            })
+        }
+    </script>
+</body>
+</html>

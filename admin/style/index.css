@@ -8,13 +8,16 @@ body,html {
 	padding: 0;
 	height: 100%;
 	display: flex;
+	flex-direction: column;
 }
-
+.content{
+	display: flex;
+	flex:1;
+}
 /* left navigation */
 .left-nav {
 	background: #00263E;
 	width: 220px;
-	height: 100%;
 	display: flex;
 	flex-direction: column;
 }
@@ -44,13 +47,22 @@ body,html {
 }
 
 .header{
-	height: 80px;
+	height: 100px;
+}
+.header img{
+	height: 100px;
+	width: 100%;
 }
 
 
 /*iframe*/
 
-.content {
+iframe {
 	width: 100%;
 	flex: 1;
+}
+
+.active{
+	text-decoration: none;
+	background-color: #eee;
 }

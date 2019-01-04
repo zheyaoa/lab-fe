@@ -100,3 +100,54 @@ var Pagination = (function(){
     }
     return Pagination;
 })()
+
+function getData(path){
+    var option = document.querySelector('#theme')
+    var selectIndex = option.selectedIndex;
+    var id = option[selectIndex].getAttribute('data-index');
+    var baseUrl = 'http://111.231.218.156:8080/Lab';
+    url = baseUrl + path;
+    $.ajax({
+        type:'GET',
+        url:url,
+        data:{id:id},
+        success:function(res){
+            var data = res.data;
+            document.querySelector('#title').value = data.title;
+            document.querySelector('#publisher').value = data.publisher;
+            window.editor.txt.html(data.content)
+        },
+        error:function(err){
+            console.log(err);
+        }
+    })
+}
+
+function setData(path,editor){
+    var option = document.querySelector('#theme')
+    var selectIndex = option.selectedIndex;
+    var id = option[selectIndex].getAttribute('data-index');
+    var baseUrl = 'http://111.231.218.156:8080/Lab';
+    url = baseUrl + path;
+    var data = {
+        id:id,
+        publisher:document.querySelector('#publisher').value,
+        content:editor.txt.html(),
+        title:document.querySelector('#title').value
+    }
+    data = JSON.stringify(data);
+    $.ajax({
+        type:'POST',
+        url:url,
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("authorization",window.localStorage.getItem('token'));
+        },
+        contentType: "application/json", //必须有  
+        dataType: "json", //表示返回值类型，不必须  
+        data:data,
+        success:function(res){
+            alert('修改成功');
+            location.reload();
+        }
+    })
+}
