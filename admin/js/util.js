@@ -146,6 +146,7 @@ function setData(path,editor){
         dataType: "json", //表示返回值类型，不必须  
         data:data,
         success:function(res){
+            console.log(res);
             alert('修改成功');
             location.reload();
         }
