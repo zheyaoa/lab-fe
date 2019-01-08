@@ -47,11 +47,10 @@ body,html {
 }
 
 .header{
-	height: 100px;
+	height: 80px;
 }
-.header img{
-	height: 100px;
-	width: 100%;
+.header h1{
+	text-align: center;
 }
 
 

@@ -141,14 +141,15 @@
             page.id = location.href.split("=")[1]
             //如果id存在，通过id去获取图片信息
             if(page.id){
-                $.get(getUrl('/Lab/api/Instrument/getIntroductionById'),{id:page.id},function(res){
+                $.get(getUrl('/api/Instrument/getInstrumentById'),{id:page.id},function(res){
                     console.log(res)
+                    console.log(res.data.introduction)
                     page.data = res.data;
                     document.querySelector('#name').value = res.data.name;
                     document.querySelector('#publisher').value = res.data.publisher;
                     document.querySelector('#manager').value = res.data.manager;
                     document.querySelector('#tel').value = res.data.tel;
-                    editor.txt.html(res.introduction)
+                    editor.txt.html(res.data.introduction);
                 })
             }
             //每次上传文件去判断图片类型
