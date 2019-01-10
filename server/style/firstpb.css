@@ -1,0 +1,289 @@
+﻿#firstpb {
+	width: 1200px;
+	height: 700px;
+	margin: 0px auto;
+	display: block;
+}
+#firstpbLeft {
+	width: 290px;
+	height: 700px;
+	padding-top: 10px;
+	background-color: #fff;
+	float: left;
+}
+#news {
+	width: 270px;
+	height: 320px;
+	margin-left: 10px;
+	border-radius: 15px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+#newst {
+	width: 269px;
+	height: 35px;
+	line-height: 35px;
+	border-top-left-radius: 15px;
+	border-bottom: 1px solid #666;
+	background-color: #fff;
+}
+#newstopleft {
+	width: 100px;
+	height: 35px;
+	font-size: 16px;
+	font-weight: 700;
+	color: #c03735;
+	text-align: center;
+	border-bottom: 3px solid #c03735;
+	float: left;
+	display: block;
+}
+.more {
+	width: 70px;
+	height: 35px;
+	text-align: center;
+	background-color: #fff;
+	float: right;
+	display: block;
+	border-top-right-radius: 15px;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #666;
+}
+#newsb {
+	width: 290px;
+	height: 250px;
+}
+#newsuls {
+	width: 250px;
+	margin-left: 20px;
+	margin-top: 10px;
+	padding: 0px;
+}
+#newsuls li {
+	width: 250px;
+	height: 25px;
+	list-style: none;
+	line-height: 25px;
+	position: relative;
+}
+#newsuls  a {
+	width: 160px;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow:ellipsis;/* 表示文本超出用省略号代替 */
+	white-space:nowrap;/* 表示文本不换行 */
+	color: #000;
+}
+#newsuls span {
+	position: absolute;
+	margin-left: 40px;
+	display: inline-block;
+	height: 25px;
+}
+/*新闻资讯*/
+#newsulst {
+	width: 250px;
+	margin-left: 20px;
+	margin-top: 35px;
+	padding: 0px;
+}
+#newsulst li {
+	width: 250px;
+	height: 30px;
+	list-style: none;
+	line-height: 30px;
+	position: relative;
+}
+#newsulst  a {
+	width: 160px;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow:ellipsis;/* 表示文本超出用省略号代替 */
+	white-space:nowrap;/* 表示文本不换行 */
+	color: #000;
+}
+#newsulst span {
+	position: absolute;
+	margin-left: 40px;
+	display: inline-block;
+	height: 25px;
+}
+#sci {
+	width: 270px;
+	height: 600px;
+	border: 1px solid #ccc;
+	margin-top: 20px;
+	margin-left: 10px;
+	border-radius: 15px;
+	background-color: #fff;
+}
+/* 右部分 */
+#firstpbRight {
+	width: 910px;
+	height: 700px;
+	padding: 0px 20px;
+	background-color: #fff;
+	float: left;
+}
+#nav-top {
+	width: 870px;
+	height: 250px;
+	margin-top: 30px;
+	border-radius: 15px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+}
+#nav-top-left {
+	width: 200px;
+	height: 170px;
+	margin-left: 15px;
+	float: left;
+}
+#gzsjj {
+	width: 100px;
+	height: 35px;
+	line-height: 35px;
+	color: #c03735;
+	font-size: 16px;
+	font-weight: 700;
+	margin-top: 10px;
+}
+#nav-top-left img {
+	width: 200px;
+	height: 170px;
+}
+#nav-top-right {
+	width: 625px;
+	height: 230px;
+	margin-top: 7px;
+	margin-left: 10px;
+	position: relative;
+	float: left;
+}
+#nav-top-right p {
+	text-indent: 2em;
+}
+#nav-top-right a {
+	position: absolute;
+}
+#nav-center {
+	width: 870px;
+	height: 200px;
+	margin-top: 10px;
+	border: 1px solid #ccc;
+	border-radius: 15px;
+	background-color: #fff;
+}
+#head-top {
+	width: 869px;
+	height: 35px;
+	line-height: 35px;
+	border-bottom: 1px solid #000;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	background-color: #fff;
+}
+#head-under {
+	width: 810px;
+	height: 130px;
+	line-height: 130px;
+	margin-left: 27px;
+	margin-top: 15px;
+	/*background-color: skyblue;*/
+}
+#head-under ul {
+	width: 810px;
+	height: 130px;
+	padding: 0px;
+	/*background-color: pink;*/
+}
+#head-under li {
+	list-style: none;
+	margin-left: 10px;
+	float: left;
+}
+#nav-bottom {
+	width: 870px;
+	height: 200px;
+	margin-top: 65px;
+}
+#nav-bottom-left {
+	width: 500px;
+	height: 200px;
+	float: left;
+}
+#academic {
+	width: 500px;
+	height: 35px;
+	line-height: 35px;
+}
+#academic-left {
+	width: 100px;
+	float: left;
+	margin-left: 20px;
+	font-size: 16px;
+	font-weight: 700;
+	color: #c03735;
+}
+#academic-right {
+	width: 70px;
+	float: right;
+}
+#academic-content {
+	width: 500px;
+	height: 165px;
+	border: 1px solid #ccc;
+	border-radius: 15px;
+}
+#academic-content ul {
+	margin-top: 10px;
+}
+#academic-content li {
+	height: 25px;
+}
+#academic-content a {
+	color: #000;
+}
+#nav-bottom-right{
+	width: 370px;
+	height: 200px;
+	float: left;
+	margin-top: 35px;
+}
+#search {
+	width: 250px;
+	height: 30px;
+	margin-left: 40px;
+	margin-top: 10px;
+}
+#text {
+	float: left;
+	width: 175px;
+	height: 30px;
+}
+#butt {
+	float: right;
+	width: 50px;
+	height: 30px;
+}
+#tlink {
+	width: 250px;
+	height: 120px;
+	margin-top: 20px;
+	margin-left: 40px;
+	border: 1px solid #ccc;
+	border-radius: 15px;
+}
+#select1 {
+	width: 200px;
+	height: 30px;
+	margin-left: 20px;
+	margin-top: 20px;
+}
+#select2 {
+	width: 200px;
+	height: 30px;
+	margin-left: 20px;
+	margin-top: 20px;
+}

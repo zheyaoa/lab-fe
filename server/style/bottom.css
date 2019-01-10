@@ -1,0 +1,15 @@
+#tunder {
+	width: 1200px;
+	height: 110px;
+	padding-top: 10px;
+	margin: 0px auto;
+	text-align: center;
+	background-color: #004172;
+}
+#tunder div {
+	color: #fff;
+	margin-top: 20px;
+}
+.tunder-div {
+	margin: 0px;
+}
