@@ -94,6 +94,7 @@ function getData(){
         success:function(res){
             var list = res.data;
             var pagination = new Pagination('#pagination',list,function(list){
+                document.querySelector('#list').innerHTML = '';
                 list.forEach(function(item){
                     document.querySelector('#list').innerHTML+= createTemplate(item);
                 })
