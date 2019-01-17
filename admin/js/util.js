@@ -101,12 +101,11 @@ var Pagination = (function(){
     return Pagination;
 })()
 
-function getData(path){
+function getData(api){
     var option = document.querySelector('#theme')
     var selectIndex = option.selectedIndex;
     var id = option[selectIndex].getAttribute('data-index');
-    var baseUrl = 'http://111.231.218.156:8080/Lab';
-    url = baseUrl + path;
+    var url = getUrl(api);
     $.ajax({
         type:'GET',
         url:url,
@@ -123,12 +122,11 @@ function getData(path){
     })
 }
 
-function setData(path,editor){
+function setData(api,editor){
     var option = document.querySelector('#theme')
     var selectIndex = option.selectedIndex;
     var id = option[selectIndex].getAttribute('data-index');
-    var baseUrl = 'http://111.231.218.156:8080/Lab';
-    url = baseUrl + path;
+    var url = getUrl(api)
     var data = {
         id:id,
         publisher:document.querySelector('#publisher').value,
@@ -152,3 +150,17 @@ function setData(path,editor){
         }
     })
 }
+
+function getUrl(api){
+    var baseUrl = 'http://111.231.218.156:8080/Lab';
+    return baseUrl + api;
+}
+
+//监听所有的错误事件
+$(document).ajaxError(function(event,xhr,options,exc){
+    var statusCode = xhr.status;
+    var errorObj = {
+        401:'你未进行登入或授权'
+    }
+    alert(errorObj[statusCode])
+})

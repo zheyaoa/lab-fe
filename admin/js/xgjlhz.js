@@ -65,55 +65,31 @@ window.onload = function(){
     }
 }
 
-//获取请求数据的api
-function getUrl(api){
-    var baseUrl = 'http://111.231.218.156:8080/Lab';
-    return baseUrl + api;
-}
 function getGetUrl(selectedIndex){
-    var url;
-    switch(selectedIndex){
-        case '0':
-            url = getUrl('/api/Academic/getAcademic');
-            break;
-        case '1':
-            url = getUrl('/api/International/getInternational');
-            break;
-        case '2':
-            url = getUrl('/api/School/getSchool');
-            break;
+    var apiUrl = {
+        0:getUrl('/api/Academic/getAcademic'),
+        1:getUrl('/api/International/getInternational'),
+        2:getUrl('/api/School/getSchool')
     }
-    return url;
+    return apiUrl[selectedIndex];
 }
+
 function getAddUrl(){
-    var url;
     var selectedIndex = document.querySelector('#theme').selectedIndex;
-    switch(selectedIndex){
-        case 0:
-            url = getUrl('/api/Academic/addAcademic');
-            break;
-        case 1:
-            url = getUrl('/api/International/addInternational');
-            break;
-        case 2:
-            url = getUrl('/api/School/addSchool');
-            break;
+    var addUrl = {
+        0:getUrl('/api/Academic/addAcademic'),
+        1:getUrl('/api/International/addInternational'),
+        2:getUrl('/api/School/addSchool')
     }
-    return url;
+    return addUrl[selectedIndex];
 }
+
 function getUpdateUrl(){
-    var url;
     var selectedIndex = document.querySelector('#theme').selectedIndex;
-    switch(selectedIndex){
-        case 0:
-            url = getUrl('/api/Academic/updateAcademic');
-            break;
-        case 1:
-            url = getUrl('/api/International/updateInternational');
-            break;
-        case 2:
-            url = getUrl('/api/School/updateSchool');
-            break;
+    var updateUrl = {
+        0:getUrl('/api/Academic/updateAcademic'),
+        1:getUrl('/api/International/updateInternational'),
+        2:getUrl('/api/School/updateSchool')
     }
-    return url;
+    return updateUrl[selectedIndex];
 }

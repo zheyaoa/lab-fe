@@ -19,11 +19,6 @@ window.onload = function(){
 }
 
 
-function getUrl(api){
-    var baseUrl = 'http://111.231.218.156:8080/Lab';
-    return baseUrl + api;
-}
-
 function createTemplate(item){
     var html = `
         <tr>
@@ -68,20 +63,14 @@ function handleDelete(e){
 
 function getDeleteUrl(){
     var selectIndex = document.querySelector('#theme').selectedIndex;
-    var url;
-    switch(selectIndex){
-        case 0:
-            url = getUrl('/api/Academic/deleteAcademic');
-            break;
-        case 1:
-            url = getUrl('/api/International/deleteInternational');
-            break;
-        case 2:
-            url = getUrl('/api/School/deleteSchool');
-            break;
+    var deleteUrl = {
+        0:getUrl('/api/Academic/deleteAcademic'),
+        1:getUrl('/api/International/deleteInternational'),
+        2:getUrl('/api/School/deleteSchool')
     }
-    return url;
+    return deleteUrl[selectIndex];
 }
+
 
 //根据主题
 function getData(){
@@ -108,17 +97,10 @@ function getData(){
 //获取请求数据的url
 function getApiUrl(){
     var selectedIndex = document.querySelector('#theme').selectedIndex;
-    var url;
-    switch(selectedIndex){
-        case 0:
-            url = getUrl('/api/Academic/getAllAcademic');
-            break;
-        case 1:
-            url = getUrl('/api/International/getAllInternationals');
-            break;
-        case 2:
-            url = getUrl('/api/School/getAllSchools');
-            break;
+    var apiUrl = {
+        0:getUrl('/api/Academic/getAllAcademic'),
+        1:getUrl('/api/International/getAllInternationals'),
+        2:getUrl('/api/School/getAllSchools')
     }
-    return url;
+    return apiUrl[selectedIndex];
 }
