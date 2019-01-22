@@ -121,6 +121,7 @@
 	height: 613px;
 	margin-top: 10px;
 	overflow: auto;
+	/*display: none;*/
 	padding-bottom: 35px;
 }
 #tit {
@@ -146,8 +147,196 @@
 #shr div {
 	float: left;
 }
+/*介绍信息*/
 #wenb {
 	width: 855px;
+	display: block;
 	padding-right: 25px;
 	margin-top: 20px;
+}
+/*所有仪器*/
+#syyq {
+	width: 855px;
+	height: 500px;
+	display: block;
+}
+/*每个仪器具体信息*/
+#yqye {
+	width: 855px;
+	height: 500px;
+	display: none;
+}
+#yqye p {
+	font-size: 20px;
+	text-indent: 2em;
+}
+.topad {
+	margin-top: 40px;
+}
+#ditu {
+	width: 855px;
+	height: 225px;
+}
+#tup {
+	width: 300px;
+	height: 225px;
+	margin-top: 20px;
+	margin-left: 277px;
+}
+/*实验仪器*/
+#first {
+	width: 855px;
+	height: 440px;
+	display: none;
+}
+#second {
+	width: 855px;
+	height: 440px;
+	display: none;
+}
+#third {
+	width: 855px;
+	height: 440px;
+	display: block;
+}
+#frow3 {
+	display: none;
+}
+#srow3 {
+	display: none;
+}
+#trow3 {
+	display: none;
+}
+#frow3,#srow3,#trow3 {
+	width: 855px;
+	height: 35px;
+	font-size: 18px;
+	color: #333;
+	margin-top: 15px;
+}
+#shouye,#shangye,#xiaye,#weiye,#zdao {
+	width: 43px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 5px;
+	display: inline-block;
+	border: 1px solid #ccc;
+}
+#yeshu {
+	width: 40px;
+	height: 25px;
+}
+#row3in {
+	width: 530px;
+	height: 35px;
+	margin: 0px auto;
+	line-height: 35px;
+}
+#row3in a {
+	width: 43px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #333;
+}
+#shouye:hover {
+	background-color: #e1dfdf;
+}
+#shangye:hover {
+	background-color: #e1dfdf;
+}
+#xiaye:hover {
+	background-color: #e1dfdf;
+}
+#weiye:hover {
+	background-color: #e1dfdf;
+}
+#zdao:hover {
+	background-color: #e1dfdf;
+}
+
+#shouye2,#shangye2,#xiaye2,#weiye2,#zdao2 {
+	width: 43px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 5px;
+	display: inline-block;
+	border: 1px solid #ccc;
+}
+#yeshu2 {
+	width: 40px;
+	height: 25px;
+}
+#row3in2 {
+	width: 530px;
+	height: 35px;
+	margin: 0px auto;
+	line-height: 35px;
+}
+#row3in2 a {
+	width: 43px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #333;
+}
+#shouye2:hover {
+	background-color: #e1dfdf;
+}
+#shangye2:hover {
+	background-color: #e1dfdf;
+}
+#xiaye2:hover {
+	background-color: #e1dfdf;
+}
+#weiye2:hover {
+	background-color: #e1dfdf;
+}
+#zdao2:hover {
+	background-color: #e1dfdf;
+}
+
+#shouye3,#shangye3,#xiaye3,#weiye3,#zdao3 {
+	width: 43px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 5px;
+	display: inline-block;
+	border: 1px solid #ccc;
+}
+#yeshu3 {
+	width: 40px;
+	height: 25px;
+}
+#row3in3 {
+	width: 530px;
+	height: 35px;
+	margin: 0px auto;
+	line-height: 35px;
+}
+#row3in3 a {
+	width: 43px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	color: #333;
+}
+#shouye3:hover {
+	background-color: #e1dfdf;
+}
+#shangye3:hover {
+	background-color: #e1dfdf;
+}
+#xiaye3:hover {
+	background-color: #e1dfdf;
+}
+#weiye3:hover {
+	background-color: #e1dfdf;
+}
+#zdao3:hover {
+	background-color: #e1dfdf;
 }

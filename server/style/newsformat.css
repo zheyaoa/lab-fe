@@ -51,6 +51,39 @@
 	width: 1140px;
 	margin-top: 20px;
 }
+
+#newsf-tit2 {
+	width: 1140px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+	font-weight: 700;
+	text-align: center;
+}
+#timti2 {
+	width: 300px;
+	height: 25px;
+	line-height: 25px;
+	display: block;
+	text-align: center;
+	margin: 0px auto;
+}
+#time2 {
+	width: 150px;
+	height: 25px;
+	float: left;
+}
+#shr2 {
+	width: 150px;
+	float: left;
+}
+#shr2 div {
+	float: left;
+}
+#shrman2 {
+	width: 80px;
+	height: 25px;
+}
 #newsf-tit {
 	font-size: 18px;
 	text-align: center;
