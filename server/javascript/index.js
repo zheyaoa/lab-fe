@@ -9,6 +9,10 @@ var third = document.getElementById('third');
 var tit = document.getElementById('tit');
 var timti = document.getElementById('timti2');
 var time2 = document.getElementById('time2');
+var four = document.getElementById('four');
+var five = document.getElementById('five');
+var trow4 = document.getElementById('trow4');
+var trow5 = document.getElementById('trow5');
 var newsftit2 = document.getElementById('newsf-tit2');
 var shrman2 = document.getElementById('shrman2');
 var heightd = 180;
@@ -32,11 +36,6 @@ newsulst.addEventListener('click',function(event){
                 zhengw.innerHTML = result.data.content;
                 time2.innerHTML = result.data.time;
                 shrman2.innerHTML = result.data.publisher;
-                console.log(time2);
-                console.log(shrman2);
-                console.log(result.data.title);
-                console.log(result.data.time);
-                console.log(result.data.publisher);
             }
         });
 	}
@@ -54,8 +53,12 @@ newstopright2.addEventListener('click',function(){
     first.style.display = 'none';
     second.style.display = 'block';
     third.style.display = 'none';
+    four.style.display = 'none';
+    five.style.display = 'none';
     srow3.style.display = 'block';
     trow3.style.display = 'none';
+    trow4.style.display = 'none';
+    trow5.style.display = 'none';
     wenb.style.display = 'none';
     tit.style.display = 'none';
     timti.style.display = 'none';
@@ -73,7 +76,6 @@ academicul.addEventListener('click',function(event){
 		newsformat.style.display = 'block';
 		tbody.style.display = 'none';
 		firstpb.style.display = 'none';
-        console.log(event.target);
 		var m = parseInt(event.target.getAttribute('theid'));
         $.get("http://111.231.218.156:8080/Lab/api/Academic/getAcademic", {id: m}, function(result){
             $("#checkResult").html(result);
@@ -96,8 +98,12 @@ academicright.addEventListener('click',function(){
     first.style.display = 'none';
     second.style.display = 'none';
     third.style.display = 'block';
+    four.style.display = 'none';
+    five.style.display = 'none';
     srow3.style.display = 'none';
     trow3.style.display = 'block';
+    trow4.style.display = 'none';
+    trow5.style.display = 'none';
     tit.style.display = 'none';
     timti.style.display = 'none';
 	listLeftbg.innerHTML = '合作交流';

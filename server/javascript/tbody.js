@@ -21,9 +21,13 @@ var shrman = document.getElementById('shrman');
 var first = document.getElementById('first');
 var second = document.getElementById('second');
 var third = document.getElementById('third');
+var four = document.getElementById('four');
+var five = document.getElementById('five');
 var frow3 = document.getElementById('frow3');
 var srow3 = document.getElementById('srow3');
 var trow3 = document.getElementById('trow3');
+var trow4 = document.getElementById('trow4');
+var trow5 = document.getElementById('trow5');
 var syyq = document.getElementById('syyq');
 var newsftit = document.getElementById('newsf-tit');
 var zhengw = document.getElementById('zhengw');
@@ -37,7 +41,12 @@ var time2 = document.getElementById('time2');
 var newsftit2 = document.getElementById('newsf-tit2');
 var shrman2 = document.getElementById('shrman2');
 
+// timti.style.display = 'block';
+
+
 syyq.style.padding = '20px 0px 0px';
+four.style.padding = '20px 0px 0px';
+five.style.padding = '20px 0px 0px';
 //头部导航栏部分
 theader.addEventListener('click',function(event){
 	if (event.target.innerHTML === '首页') {
@@ -114,10 +123,15 @@ theader.addEventListener('click',function(event){
         syyq.style.display = 'block';
         first.style.display = 'none';
         second.style.display = 'block';
+        yqye.style.display = 'none';
         third.style.display = 'none';
+        four.style.display = 'none';
+        five.style.display = 'none';
         frow3.style.display = 'none';
         srow3.style.display = 'block';
         trow3.style.display = 'none';
+        trow4.style.display = 'none';
+        trow5.style.display = 'none';
         wenb.style.display = 'none';
         tit.style.display = 'none';
         timti.style.display = 'none';
@@ -141,6 +155,10 @@ theader.addEventListener('click',function(event){
         srow3.style.display = 'none';
         third.style.display = 'none';
         trow3.style.display = 'none';
+        four.style.display = 'none';
+        trow4.style.display = 'none';
+        five.style.display = 'none';
+        trow5.style.display = 'none';
         tit.style.display = 'none';
         timti.style.display = 'none';
         $.get("http://111.231.218.156:8080/Lab/api/Instrument/getInstrumentById", {id: 1}, function(result){
@@ -171,12 +189,17 @@ theader.addEventListener('click',function(event){
 	if (event.target.childNodes[0].nodeValue === '合作交流') {//默认是学术交流
         wenb.style.display = 'none';
         syyq.style.display = 'block';
+        yqye.style.display = 'none';
         first.style.display = 'none';
         second.style.display = 'none';
         third.style.display = 'block';
+        four.style.display = 'none';
+        five.style.display = 'none';
         frow3.style.display = 'none';
         srow3.style.display = 'none';
         trow3.style.display = 'block';
+        trow4.style.display = 'none';
+        trow5.style.display = 'none';
         tit.style.display = 'none';
         timti.style.display = 'none';
         $.get("http://111.231.218.156:8080/Lab/api/Academic/getAcademic", {id: 1}, function(result){
@@ -236,6 +259,7 @@ theader.addEventListener('click',function(event){
 	}
 	if (event.target.childNodes[0].nodeValue === '实验室简介') {//默认是工作室简介
         wenb.style.display = 'block';
+        timti.style,display = 'none';
         $.get("http://111.231.218.156:8080/Lab/api/Introduction/getIntroductionById", {id: 1}, function(result){
             $("#checkResult").html(result);
             if (result.status === 1) {
@@ -293,6 +317,10 @@ theader.addEventListener('click',function(event){
                 srow3.style.display = 'none';
                 third.style.display = 'none';
                 trow3.style.display = 'none';
+                four.style.display = 'none';
+                five.style.display = 'none';
+                trow4.style.display = 'none';
+                trow5.style.display = 'none';
                 tit.style.display = 'none';
                 timti.style.display = 'none';
                 $.get("http://111.231.218.156:8080/Lab/api/Instrument/getInstrumentById", {id: 1}, function(result){
@@ -368,10 +396,11 @@ theader.addEventListener('click',function(event){
         }
         //合作交流
         if (event.target.parentNode.parentNode.childNodes[0].nodeValue === '合作交流') {
-            //学术交流
+        //学术交流
         if (event.target.innerHTML === '学术交流') {
             wenb.style.display = 'none';
             syyq.style.display = 'block';
+            yqye.style.display = 'none';
             first.style.display = 'none';
             second.style.display = 'none';
             third.style.display = 'block';
@@ -380,6 +409,10 @@ theader.addEventListener('click',function(event){
             trow3.style.display = 'block';
             tit.style.display = 'none';
             timti.style.display = 'none';
+            four.style.display = 'none';
+            five.style.display = 'none';
+            trow4.style.display = 'none';
+            trow5.style.display = 'none';
             $.get("http://111.231.218.156:8080/Lab/api/Academic/getAcademic", {id: 1}, function(result){
                 $("#checkResult").html(result);
                 if (result.status === 1) {
@@ -392,10 +425,20 @@ theader.addEventListener('click',function(event){
         }
         //国际合作
         if (event.target.innerHTML === '国际合作') {
-            tit.style.display = 'block';
-            timti.style.display = 'block';
+            tit.style.display = 'none';
+            timti.style.display = 'none';
+            wenb.style.display = 'none';
+            first.style.display = 'none';
             yqye.style.display = 'none';
-            $.get("http://111.231.218.156:8080/Lab/api/International/getInternational", {id: 1}, function(result){
+            syyq.style.display = 'block';
+            third.style.display = 'none';
+            four.style.display = 'block';
+            five.style.display = 'none';
+            frow3.style.display = 'none';
+            trow3.style.display = 'none';
+            trow4.style.display = 'block';
+            trow5.style.display = 'none';
+            $.get("http://111.231.218.156:8080/Lab/api/International/getInternational", {id: 2}, function(result){
                 $("#checkResult").html(result);
                 if (result.status === 1) {
                     tit.innerHTML = result.data.title;
@@ -407,10 +450,20 @@ theader.addEventListener('click',function(event){
         }
         //校企合作
         if (event.target.innerHTML === '校企合作') {
-            tit.style.display = 'block';
-            timti.style.display = 'block';
+            tit.style.display = 'none';
+            timti.style.display = 'none';
+            wenb.style.display = 'none';
+            first.style.display = 'none';
             yqye.style.display = 'none';
-            $.get("http://111.231.218.156:8080/Lab/api/School/getSchool", {id: 1}, function(result){
+            syyq.style.display = 'block';
+            third.style.display = 'none';
+            four.style.display = 'none';
+            five.style.display = 'block';
+            frow3.style.display = 'none';
+            trow3.style.display = 'none';
+            trow4.style.display = 'none';
+            trow5.style.display = 'block';
+            $.get("http://111.231.218.156:8080/Lab/api/School/getSchool", {id: 2}, function(result){
                 $("#checkResult").html(result);
                 if (result.status === 1) {
                     tit.innerHTML = result.data.title;
@@ -613,7 +666,6 @@ theader.addEventListener('click',function(event){
         }
         //接口部分end
 	}
-	
 },false);
 
 //1.给左边的导航栏注册点击事件
@@ -822,54 +874,75 @@ uls.addEventListener('click',function(){
             first.style.display = 'none';
             second.style.display = 'none';
             third.style.display = 'block';
+            four.style.display = 'none';
+            five.style.display = 'none';
             frow3.style.display = 'none';
             srow3.style.display = 'none';
             trow3.style.display = 'block';
+            trow4.style.display = 'none';
+            trow5.style.display = 'none';
             tit.style.display = 'none';
             timti.style.display = 'none';
             $.get("http://111.231.218.156:8080/Lab/api/Academic/getAcademic", {id: 1}, function(result){
                 $("#checkResult").html(result);
-                    if (result.status === 1) {
-                        tit.innerHTML = result.data.title;
-                        wenb.innerHTML = result.data.content;
-                        time.innerHTML = result.data.time;
-                        shrman.innerHTML = result.data.publisher;
-                    }
-                });
+                if (result.status === 1) {
+                    tit.innerHTML = result.data.title;
+                    wenb.innerHTML = result.data.content;
+                    time.innerHTML = result.data.time;
+                    shrman.innerHTML = result.data.publisher;
+                }
+            });
         }
         //国际合作
         if (event.target.innerHTML === '国际合作') {
             syyq.style.display = 'none';
-            wenb.style.display = 'block';
-            tit.style.display = 'block';
-            timti.style.display = 'block';
+            wenb.style.display = 'none';
+            tit.style.display = 'none';
+            timti.style.display = 'none';
+            wenb.style.display = 'none';
+            first.style.display = 'none';
+            syyq.style.display = 'block';
             yqye.style.display = 'none';
-            $.get("http://111.231.218.156:8080/Lab/api/International/getInternational", {id: 1}, function(result){
+            third.style.display = 'none';
+            four.style.display = 'block';
+            five.style.display = 'none';
+            trow3.style.display = 'none';
+            trow4.style.display = 'block';
+            trow5.style.display = 'none';
+            $.get("http://111.231.218.156:8080/Lab/api/International/getInternational", {id: 2}, function(result){
                 $("#checkResult").html(result);
-                    if (result.status === 1) {
-                        tit.innerHTML = result.data.title;
-                        wenb.innerHTML = result.data.content;
-                        time.innerHTML = result.data.time;
-                        shrman.innerHTML = result.data.publisher;
-                    }
-                });
+                if (result.status === 1) {
+                    tit.innerHTML = result.data.title;
+                    wenb.innerHTML = result.data.content;
+                    time.innerHTML = result.data.time;
+                    shrman.innerHTML = result.data.publisher;
+                }
+            });
         }
         //校企合作
         if (event.target.innerHTML === '校企合作') {
             syyq.style.display = 'none';
-            wenb.style.display = 'block';
-            tit.style.display = 'block';
-            timti.style.display = 'block';
+            wenb.style.display = 'none';
+            tit.style.display = 'none';
+            timti.style.display = 'none';
+            wenb.style.display = 'none';
+            first.style.display = 'none';
+            syyq.style.display = 'block';
             yqye.style.display = 'none';
-            $.get("http://111.231.218.156:8080/Lab/api/School/getSchool", {id: 1}, function(result){
+            third.style.display = 'none';
+            four.style.display = 'none';
+            five.style.display = 'block';
+            trow4.style.display = 'none';
+            trow5.style.display = 'block';
+            $.get("http://111.231.218.156:8080/Lab/api/School/getSchool", {id: 2}, function(result){
                 $("#checkResult").html(result);
-                    if (result.status === 1) {
-                        tit.innerHTML = result.data.title;
-                        wenb.innerHTML = result.data.content;
-                        time.innerHTML = result.data.time;
-                        shrman.innerHTML = result.data.publisher;
-                    }
-                });
+                if (result.status === 1) {
+                    tit.innerHTML = result.data.title;
+                    wenb.innerHTML = result.data.content;
+                    time.innerHTML = result.data.time;
+                    shrman.innerHTML = result.data.publisher;
+                }
+            });
         }
         //人才培养
         if (event.target.innerHTML === '博士后') {
@@ -878,13 +951,13 @@ uls.addEventListener('click',function(){
             yqye.style.display = 'none';
             $.get("http://111.231.218.156:8080/Lab/api/PersonnelTraining/getPersonnelTraining", {id: 1}, function(result){
                 $("#checkResult").html(result);
-                    if (result.status === 1) {
-                        tit.innerHTML = result.data.title;
-                        wenb.innerHTML = result.data.content;
-                        time.innerHTML = result.data.time;
-                        shrman.innerHTML = result.data.publisher;
-                    }
-                });
+                if (result.status === 1) {
+                    tit.innerHTML = result.data.title;
+                    wenb.innerHTML = result.data.content;
+                    time.innerHTML = result.data.time;
+                    shrman.innerHTML = result.data.publisher;
+                }
+            });
         }
         if (event.target.innerHTML === '博士研究生') {
             tit.style.display = 'block';
@@ -892,13 +965,13 @@ uls.addEventListener('click',function(){
             yqye.style.display = 'none';
             $.get("http://111.231.218.156:8080/Lab/api/PersonnelTraining/getPersonnelTraining", {id: 2}, function(result){
                 $("#checkResult").html(result);
-                    if (result.status === 1) {
-                        tit.innerHTML = result.data.title;
-                        wenb.innerHTML = result.data.content;
-                        time.innerHTML = result.data.time;
-                        shrman.innerHTML = result.data.publisher;
-                    }
-                });
+                if (result.status === 1) {
+                    tit.innerHTML = result.data.title;
+                    wenb.innerHTML = result.data.content;
+                    time.innerHTML = result.data.time;
+                    shrman.innerHTML = result.data.publisher;
+                }
+            });
         }
         if (event.target.innerHTML === '硕士研究生') {
             tit.style.display = 'block';
@@ -906,13 +979,13 @@ uls.addEventListener('click',function(){
             yqye.style.display = 'none';
             $.get("http://111.231.218.156:8080/Lab/api/PersonnelTraining/getPersonnelTraining", {id: 3}, function(result){
                 $("#checkResult").html(result);
-                    if (result.status === 1) {
-                        tit.innerHTML = result.data.title;
-                        wenb.innerHTML = result.data.content;
-                        time.innerHTML = result.data.time;
-                        shrman.innerHTML = result.data.publisher;
-                    }
-                });
+                if (result.status === 1) {
+                    tit.innerHTML = result.data.title;
+                    wenb.innerHTML = result.data.content;
+                    time.innerHTML = result.data.time;
+                    shrman.innerHTML = result.data.publisher;
+                }
+            });
         }
         //仪器平台
         //科研仪器
@@ -926,17 +999,21 @@ uls.addEventListener('click',function(){
             srow3.style.display = 'none';
             third.style.display = 'none';
             trow3.style.display = 'none';
+            four.style.display = 'none';
+            five.style.display = 'none';
+            trow4.style.display = 'none';
+            trow5.style.display = 'none';
             tit.style.display = 'none';
             timti.style.display = 'none';
             $.get("http://111.231.218.156:8080/Lab/api/Instrument/getInstrumentById", {id: 5}, function(result){
                 $("#checkResult").html(result);
-                    if (result.status === 1) {
-                        tit.innerHTML = result.data.title;
-                        wenb.innerHTML = result.data.content;
-                        time.innerHTML = result.data.time;
-                        shrman.innerHTML = result.data.publisher;
-                    }
-                });
+                if (result.status === 1) {
+                    tit.innerHTML = result.data.title;
+                    wenb.innerHTML = result.data.content;
+                    time.innerHTML = result.data.time;
+                    shrman.innerHTML = result.data.publisher;
+                }
+            });
         }
         //仪器共享
         if (event.target.innerHTML === '仪器共享') {
@@ -947,13 +1024,13 @@ uls.addEventListener('click',function(){
             yqye.style.display = 'none';
             $.get("http://111.231.218.156:8080/Lab/api/Instrument/getInstrumentById", {id: 2}, function(result){
                 $("#checkResult").html(result);
-                    if (result.status === 1) {
-                        tit.innerHTML = result.data.title;
-                        wenb.innerHTML = result.data.content;
-                        time.innerHTML = result.data.time;
-                        shrman.innerHTML = result.data.publisher;
-                    }
-                });
+                if (result.status === 1) {
+                    tit.innerHTML = result.data.title;
+                    wenb.innerHTML = result.data.content;
+                    time.innerHTML = result.data.time;
+                    shrman.innerHTML = result.data.publisher;
+                }
+            });
         }
         //接口end
 	}
@@ -962,7 +1039,6 @@ uls.addEventListener('click',function(){
 //路径问题
 var hpage = document.getElementById('hpage');
 var resf = document.getElementById('resf');
-
 
 //点击首页，tbody消失
 var firstpage = document.getElementById('firstpage');
@@ -976,9 +1052,6 @@ hpage.addEventListener('click',function(){
 	tbody.style.display = 'none';
 	firstpb.style.display = 'block';
 },false);
-
-
-
 
 //创建仪器对象
  function Instrument(num){
@@ -1547,7 +1620,6 @@ function reloadtemp2(){
             }
             for(var i = temp2.length;i < academicul.children.length;i++) {
                 academicul.children[i].children[0].innerHTML = '';
-                academicul.children[i].children[1].innerHTML = '';
             }
         } else if (academicul.children.length < temp2.length) {
             for(var i = 0;i < academicul.children.length;i++) {
@@ -1700,6 +1772,420 @@ third.addEventListener('click',function(event){
         timti2.style.display = 'block';
         var m = parseInt(event.target.getAttribute('class'));
         $.get("http://111.231.218.156:8080/Lab/api/Academic/getAcademic", {id: m}, function(result){
+            $("#checkResult").html(result);
+            if (result.status === 1) {
+                newsftit2.innerHTML = result.data.title;
+                zhengw.innerHTML = result.data.content;
+                time2.innerHTML = result.data.time;
+                shrman2.innerHTML = result.data.publisher;
+            }
+        });
+    }
+},false);
+
+
+//国际合作
+function List4(num){
+    this.title = num.title;
+    this.time = num.time;
+}
+List4.prototype.getcreat = function(title,time,id){
+    var thelist = document.createElement('div');
+    thelist.style.height = '40px';
+    thelist.style.width = '855px';
+    thelist.style.fontSize = '20px';
+    four.appendChild(thelist);
+    var divle = document.createElement('div');
+    divle.style.float = 'left';
+    divle.style.width = '600px';
+    divle.style.height = '40px';
+    var a3 = document.createElement('a');
+    a3.style.width = '600px';
+    a3.style.height = '40px';
+    a3.innerHTML = title;
+    a3.style.cursor = 'pointer';
+    a3.style.color = '#000';
+    a3.setAttribute('class',id);
+    divle.appendChild(a3);
+    thelist.appendChild(divle);
+    var divri = document.createElement('div');
+    divri.style.float = 'right';
+    divri.style.width = '120px';
+    divri.style.height = '40px';
+    divri.innerHTML = time.substring(0,10);
+    thelist.appendChild(divri);
+}
+
+
+
+var temp4 = [];
+function reloadtemp4(){
+    $.post("http://111.231.218.156:8080/Lab/api/International/getAllInternationals", {id: 2}, function(result){
+        $("#checkResult").html(result);
+        if (result.status === 1) {
+            for(var i = 0;i < result.data.length;i++){
+                var thedata = {};
+                thedata.title = result.data[i].title;
+                thedata.time = result.data[i].time;
+                thedata.id = result.data[i].id;
+                temp4.push(thedata);
+            }
+        }
+        for(var i = 0;i < temp4.length;i++){
+            var list = new List4(temp4[i]);
+            list.getcreat(temp4[i].title,temp4[i].time,temp4[i].id);
+        }
+
+
+        //列表项个数
+        var tiaos4 = document.getElementById('tiaos4');
+        tiaos4.innerHTML = '共' + four.children.length + '条';
+        //在第几页
+        var jfzjl4 = document.getElementById('jfzjl4');
+        //总共页数
+        var jfzjr4 = document.getElementById('jfzjr4');
+        if (four.children.length < 10) {
+            jfzjr4.innerHTML = 1;
+        } else {
+            if (four.children.length % 10 === 0) {
+                var count = four.children.length / 10;
+                jfzjr4.innerHTML = count;
+            } else {
+                var count = parseInt(four.children.length / 10) + 1;
+                jfzjr4.innerHTML = count;
+            }
+        }
+        //首页
+        var shouye4 = document.getElementById('shouye4');
+        shouye4.addEventListener('click',function(event){
+            var count = 1;
+            lnub4 = count;
+            jfzjl4.innerHTML = count;
+            for(var i = 10;i < four.children.length;i++){
+                var spage = four.children[i];
+                spage.style.display = 'none';
+            }
+            if (four.children.length > 10) {
+                for(var i = 0;i < 10;i++){
+                    var spage = four.children[i];
+                    spage.style.display = 'block';
+                }
+            } else {
+                for(var i = 0;i < four.children.length;i++){
+                    var spage = four.children[i];
+                    spage.style.display = 'block';
+                }
+            }
+        },false);
+        //上页
+        var lnub4 = parseInt(jfzjl4.innerHTML);
+        var rnub4 = parseInt(jfzjr4.innerHTML);
+        var shangye4 = document.getElementById('shangye4');
+        shangye4.addEventListener('click',function(event){
+            if (lnub4 > 1) {
+                lnub4 --;
+                for(var i = 0;i < four.children.length;i++){
+                    var spage = four.children[i];
+                    spage.style.display = 'none';
+                }
+                if (lnub4 * 10 < four.children.length) {
+                    for(var j = 10 * (lnub4 - 1);j < lnub4 * 10;j++){
+                        var spage = four.children[j];
+                        spage.style.display = 'block';
+                    }
+                }
+                jfzjl4.innerHTML = lnub4;
+            }
+        },false);
+        //下页
+        var xiaye4 = document.getElementById('xiaye4');
+        xiaye4.addEventListener('click',function(event){
+            if (lnub4 < rnub4) {
+                lnub4 ++;
+                for(var i = 0;i < four.children.length;i++){
+                    var spage = four.children[i];
+                    spage.style.display = 'none';
+                }
+                if (lnub4 * 10 > four.children.length) {
+                    for(var j =  10 * (lnub4 - 1);j < four.children.length;j++){
+                        var spage = four.children[j];
+                        spage.style.display = 'block';
+                    }
+                } else {
+                    for(var j =  10 * (lnub4 - 1);j < lnub4 * 10;j++){
+                        var spage = four.children[j];
+                        spage.style.display = 'block';
+                    }
+                }
+                jfzjl4.innerHTML = lnub4;
+            }
+        },false);
+        //尾页
+        var weiye4 = document.getElementById('weiye4');
+        weiye4.addEventListener('click',function(event){
+            for(var i = 0;i < four.children.length;i++){
+                var spage = four.children[i];
+                spage.style.display = 'none';
+            }
+            for(var j =  10 * (rnub4 - 1);j < four.children.length;j++){
+                var spage = four.children[j];
+                spage.style.display = 'block';
+            }
+            lnub4 = rnub4;
+            jfzjl4.innerHTML = lnub4;
+        },false);
+        //跳转
+        var zdao4 = document.getElementById('zdao4');
+        //页数
+        var yeshu4 = document.getElementById('yeshu4');
+        zdao4.addEventListener('click',function(){
+            if (yeshu4.value <= rnub4 && yeshu4.value > 0 && yeshu4.value != '') {
+                for(var i = 0;i < four.children.length;i++){
+                    var spage = four.children[i];
+                    spage.style.display = 'none';
+                }
+                if (yeshu4.value * 10 > four.children.length) {
+                    for(var j =  10 * (yeshu4.value - 1);j < four.children.length;j++){
+                        var spage = four.children[j];
+                        spage.style.display = 'block';
+                    }
+                    lnub4 = yeshu4.value;
+                    jfzjl4.innerHTML = lnub4;
+                } else {
+                    for(var j =  10 * (yeshu4.value - 1);j < yeshu4.value * 10;j++){
+                        var spage = four.children[j];
+                        spage.style.display = 'block';
+                    }
+                    lnub4 = yeshu4.value;
+                    jfzjl4.innerHTML = lnub4;
+                }
+            }
+            yeshu4.value = '';
+        },false);
+        if (four.children.length > 10) {
+            for(var i = 10;i < four.children.length;i++){
+                var spage = four.children[i];
+                spage.style.display = 'none';
+            }
+        }
+    });
+}
+reloadtemp4();
+
+four.addEventListener('click',function(event){
+    if (event.target.tagName === 'A') {
+        newsformat.style.display = 'block';
+        tbody.style.display = 'none';
+        firstpb.style.display = 'none';
+        timti2.style.display = 'block';
+        var m = parseInt(event.target.getAttribute('class'));
+        $.get("http://111.231.218.156:8080/Lab/api/International/getInternational", {id: m}, function(result){
+            $("#checkResult").html(result);
+            if (result.status === 1) {
+                newsftit2.innerHTML = result.data.title;
+                zhengw.innerHTML = result.data.content;
+                time2.innerHTML = result.data.time;
+                shrman2.innerHTML = result.data.publisher;
+            }
+        });
+    }
+},false);
+
+//校企合作
+function List5(num){
+    this.title = num.title;
+    this.time = num.time;
+}
+List5.prototype.getcreat = function(title,time,id){
+    var thelist = document.createElement('div');
+    thelist.style.height = '40px';
+    thelist.style.width = '855px';
+    thelist.style.fontSize = '20px';
+    five.appendChild(thelist);
+    var divle = document.createElement('div');
+    divle.style.float = 'left';
+    divle.style.width = '600px';
+    divle.style.height = '40px';
+    var a3 = document.createElement('a');
+    a3.style.width = '600px';
+    a3.style.height = '40px';
+    a3.innerHTML = title;
+    a3.style.cursor = 'pointer';
+    a3.style.color = '#000';
+    a3.setAttribute('class',id);
+    divle.appendChild(a3);
+    thelist.appendChild(divle);
+    var divri = document.createElement('div');
+    divri.style.float = 'right';
+    divri.style.width = '120px';
+    divri.style.height = '40px';
+    divri.innerHTML = time.substring(0,10);
+    thelist.appendChild(divri);
+}
+
+
+var temp5 = [];
+function reloadtemp5(){
+    $.post("http://111.231.218.156:8080/Lab/api/School/getAllSchools", {id: 2}, function(result){
+        $("#checkResult").html(result);
+        if (result.status === 1) {
+            for(var i = 0;i < result.data.length;i++){
+                var thedata = {};
+                thedata.title = result.data[i].title;
+                thedata.time = result.data[i].time;
+                thedata.id = result.data[i].id;
+                temp5.push(thedata);
+            }
+        }
+        for(var i = 0;i < temp5.length;i++){
+            var list = new List5(temp5[i]);
+            list.getcreat(temp5[i].title,temp5[i].time,temp5[i].id);
+        }
+
+
+        //列表项个数
+        var tiaos5 = document.getElementById('tiaos5');
+        tiaos5.innerHTML = '共' + five.children.length + '条';
+        //在第几页
+        var jfzjl5 = document.getElementById('jfzjl5');
+        //总共页数
+        var jfzjr5 = document.getElementById('jfzjr5');
+        if (five.children.length < 10) {
+            jfzjr5.innerHTML = 1;
+        } else {
+            if (five.children.length % 10 === 0) {
+                var count = five.children.length / 10;
+                jfzjr5.innerHTML = count;
+            } else {
+                var count = parseInt(five.children.length / 10) + 1;
+                jfzjr5.innerHTML = count;
+            }
+        }
+        //首页
+        var shouye5 = document.getElementById('shouye5');
+        shouye5.addEventListener('click',function(event){
+            var count = 1;
+            lnub5 = count;
+            jfzjl5.innerHTML = count;
+            for(var i = 10;i < five.children.length;i++){
+                var spage = five.children[i];
+                spage.style.display = 'none';
+            }
+            if (five.children.length > 10) {
+                for(var i = 0;i < 10;i++){
+                    var spage = five.children[i];
+                    spage.style.display = 'block';
+                }
+            } else {
+                for(var i = 0;i < five.children.length;i++){
+                    var spage = five.children[i];
+                    spage.style.display = 'block';
+                }
+            }
+        },false);
+        //上页
+        var lnub5 = parseInt(jfzjl5.innerHTML);
+        var rnub5 = parseInt(jfzjr5.innerHTML);
+        var shangye5 = document.getElementById('shangye5');
+        shangye5.addEventListener('click',function(event){
+            if (lnub5 > 1) {
+                lnub5 --;
+                for(var i = 0;i < five.children.length;i++){
+                    var spage = five.children[i];
+                    spage.style.display = 'none';
+                }
+                if (lnub5 * 10 < five.children.length) {
+                    for(var j = 10 * (lnub5 - 1);j < lnub5 * 10;j++){
+                        var spage = five.children[j];
+                        spage.style.display = 'block';
+                    }
+                }
+                jfzjl5.innerHTML = lnub5;
+            }
+        },false);
+        //下页
+        var xiaye5 = document.getElementById('xiaye5');
+        xiaye5.addEventListener('click',function(event){
+            if (lnub5 < rnub5) {
+                lnub5 ++;
+                for(var i = 0;i < five.children.length;i++){
+                    var spage = five.children[i];
+                    spage.style.display = 'none';
+                }
+                if (lnub5 * 10 > five.children.length) {
+                    for(var j =  10 * (lnub5 - 1);j < five.children.length;j++){
+                        var spage = five.children[j];
+                        spage.style.display = 'block';
+                    }
+                } else {
+                    for(var j =  10 * (lnub5 - 1);j < lnub5 * 10;j++){
+                        var spage = five.children[j];
+                        spage.style.display = 'block';
+                    }
+                }
+                jfzjl5.innerHTML = lnub5;
+            }
+        },false);
+        //尾页
+        var weiye5 = document.getElementById('weiye5');
+        weiye5.addEventListener('click',function(event){
+            for(var i = 0;i < five.children.length;i++){
+                var spage = five.children[i];
+                spage.style.display = 'none';
+            }
+            for(var j =  10 * (rnub5 - 1);j < five.children.length;j++){
+                var spage = five.children[j];
+                spage.style.display = 'block';
+            }
+            lnub5 = rnub5;
+            jfzjl5.innerHTML = lnub5;
+        },false);
+        //跳转
+        var zdao5 = document.getElementById('zdao5');
+        //页数
+        var yeshu5 = document.getElementById('yeshu5');
+        zdao5.addEventListener('click',function(){
+            if (yeshu5.value <= rnub5 && yeshu5.value > 0 && yeshu5.value != '') {
+                for(var i = 0;i < five.children.length;i++){
+                    var spage = five.children[i];
+                    spage.style.display = 'none';
+                }
+                if (yeshu5.value * 10 > five.children.length) {
+                    for(var j =  10 * (yeshu5.value - 1);j < five.children.length;j++){
+                        var spage = five.children[j];
+                        spage.style.display = 'block';
+                    }
+                    lnub5 = yeshu5.value;
+                    jfzjl5.innerHTML = lnub5;
+                } else {
+                    for(var j =  10 * (yeshu5.value - 1);j < yeshu5.value * 10;j++){
+                        var spage = five.children[j];
+                        spage.style.display = 'block';
+                    }
+                    lnub5 = yeshu5.value;
+                    jfzjl5.innerHTML = lnub5;
+                }
+            }
+            yeshu5.value = '';
+        },false);
+        if (five.children.length > 10) {
+            for(var i = 10;i < five.children.length;i++){
+                var spage = five.children[i];
+                spage.style.display = 'none';
+            }
+        }
+    });
+}
+reloadtemp5();
+
+five.addEventListener('click',function(event){
+    if (event.target.tagName === 'A') {
+        newsformat.style.display = 'block';
+        tbody.style.display = 'none';
+        firstpb.style.display = 'none';
+        timti2.style.display = 'block';
+        var m = parseInt(event.target.getAttribute('class'));
+        $.get("http://111.231.218.156:8080/Lab/api/School/getSchool", {id: m}, function(result){
             $("#checkResult").html(result);
             if (result.status === 1) {
                 newsftit2.innerHTML = result.data.title;
